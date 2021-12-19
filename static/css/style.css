@@ -11,6 +11,10 @@ html, body {
   height: 100%;
 }
 
+#status {
+  margin: 0;
+}
+
 .scroll-y {
   overflow-y: auto;
 }

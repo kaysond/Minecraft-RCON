@@ -19,6 +19,21 @@
     <div class="alert alert-info" id="alertMessage">
       Minecraft RCON
     </div>
+    <div class="card mb-3" id="serverContent">
+      <h3 class="card-header placeholder-glow">
+        <span><i class="bi bi-lightning-charge"></i> Server Control</span>
+        <span class="float-end h5" id="status">
+          <span class="d-none d-sm-inline">Version: </span><span class="d-inline d-sm-none">v</span><span class="placeholder" id="serverVersion">0.00.0</span> - 
+          <span class="d-none d-sm-inline">Status: </span><span class="placeholder" id="serverStatus">__</span>
+        </span>
+      </h3>
+      <div class="card-body mx-auto">
+        <button class="btn btn-success" id="btnOn"><i class="bi bi-lightbulb"></i><span class="d-none d-sm-inline"> Power On</span></button>
+        <button class="btn btn-warning" id="btnOn"><i class="bi bi-arrow-repeat"></i><span class="d-none d-sm-inline"> Restart</span></button>
+        <button class="btn btn-danger" id="btnOff"><i class="bi bi-lightbulb-off"></i><span class="d-none d-sm-inline"> Power Off</span></button>
+        <button class="btn btn-info" id="btnOff"><i class="bi bi-cloud-arrow-up"></i><span class="d-none d-sm-inline"> Update</span></button>
+      </div>
+    </div>
     <div class="card flex-grow-1 scroll-child">
       <h3 class="card-header">
         <i class="bi bi-terminal"></i> Console
