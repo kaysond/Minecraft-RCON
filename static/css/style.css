@@ -2,67 +2,21 @@ html, body {
   height: 100%;
 }
 
+.py-def {
+  padding-top: var(--bs-gutter-y,.75rem);
+  padding-bottom: var(--bs-gutter-y,.75rem);
+}
+
 #content {
   height: 100%;
-  position: relative;
 }
 
-#consoleRow{
-  position: absolute;
-  top: 83px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+.scroll-y {
+  overflow-y: auto;
 }
 
-#alertMessage{
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-}
-
-#consoleContent{
-  margin: 0px;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 49px;
-}
-
-.panel-heading{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-}
-
-.panel-body{
-  position: absolute;
-  top: 43px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  overflow: auto;
-}
-
-.panel-body ul{
-  margin-bottom: 0px;
-}
-.panel-body ul li .label{
-  margin-top: 2px;
-  margin-right: -5px;
-}
-
-#consoleCommand{
-  position: absolute;
-  bottom: 0px;
-}
-
-#groupConsole{
-  overflow: auto;
+.scroll-child {
+  overflow: hidden;
 }
 
 .list-group-item {

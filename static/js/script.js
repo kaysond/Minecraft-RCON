@@ -705,7 +705,7 @@ function logMsg(msg, sep, cls){
         ("0" + date.getDate()).slice(-2) + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + date.getFullYear() + " @ " +
         ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2);
   $("#groupConsole")
-    .append("<li class=\"list-group-item list-group-item-" + cls + "\"><span class=\"pull-right label label-" + cls + "\">" + datetime + "</span><strong>" + sep + "</strong> " + msg + "<div class=\"clearfix\"></div></li>");
+    .append("<li class=\"list-group-item list-group-item-" + cls + " d-flex justify-content-between align-items-center\"><span><strong>" + sep + "</strong> " + msg + "</span><span class=\"badge bg-" + cls + "\">" + datetime + "</span></li>");
   $("#btnSend").prop("disabled", false);
   // Clear old logs
   var logItemSize = $("#groupConsole li").size();
@@ -714,7 +714,7 @@ function logMsg(msg, sep, cls){
   }
   // Scroll down
   if($("#chkAutoScroll").is(":checked")){
-    $("#consoleContent .panel-body").scrollTop($("#groupConsole").get(0).scrollHeight);
+    $("#consoleContent").scrollTop($("#groupConsole").get(0).scrollHeight);
   }
 }
 function logSuccess(log){
