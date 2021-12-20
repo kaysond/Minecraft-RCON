@@ -697,6 +697,13 @@ $(document).ready(function(){
         });
     }
   });
+
+  $("#serverControl > button").click(function() {
+    sendServerCommand($(this).children("span").text().trim())
+  })
+
+  getStatus()
+  setInterval(getStatus, 5000)
 });
 
 function logMsg(msg, sep, cls){
@@ -791,4 +798,70 @@ function sendCommand(command){
       alertDanger("RCON error.");
       logDanger("RCON error.");
     });
+}
+
+function getStatus() {
+  $.get("control/?query=version")
+    .done(function(json) {
+      switch (json.status || null) {
+        case "success":
+          $('#serverVersion').text(json.response).attr('class', 'text-info')
+          break
+        case "error":
+          alertDanger(json.error)
+          logDanger(json.error)
+          break
+        default:
+          alertDanger("query api error (no status returned)"); 
+          logDanger("query api error (no status returned)");
+      }
+    })
+    .fail(function() {
+      alertDanger("getStatus request error")
+      logDanger("getStatus request error")
+    })
+
+  $.get("control/?query=status")
+    .done(function(json) {
+      switch (json.status || null) {
+        case "success":
+          styles = {'Up': 'success', 'Paused': 'warning', 'Down': 'danger'}
+          $('#serverStatus').text(json.response).attr('class', 'text-'+styles[json.response])
+          break
+        case "error":
+          alertDanger(json.error)
+          logDanger(json.error)
+          break
+        default:
+          alertDanger("query api error (no status returned)"); 
+          logDanger("query api error (no status returned)");
+      }
+    })
+    .fail(function() {
+      alertDanger("getStatus request error")
+      logDanger("getStatus request error")
+    })
+}
+
+function sendServerCommand(command) {
+  $.post("control/", { 'command': command })
+    .done(function(json) {
+      switch (json.status) {
+        case "success":
+          alertSuccess(`Successfully executed ${json.command} command`)
+          logSuccess(`Successfully executed ${json.command} command`)
+          break
+        case "error":
+          alertDanger(json.error)
+          logDanger(json.error)
+          break
+        default:
+          alertDanger("query api error (no status returned)"); 
+          logDanger("query api error (no status returned)");
+      }
+    })
+    .fail(function() {
+      alertDanger("sendServerControl request error")
+      logDanger("sendServerControl request error")
+    })
 }

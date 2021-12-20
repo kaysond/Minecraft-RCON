@@ -19,19 +19,21 @@
     <div class="alert alert-info" id="alertMessage">
       Minecraft RCON
     </div>
-    <div class="card mb-3" id="serverContent">
+    <div class="card mb-3">
       <h3 class="card-header placeholder-glow">
-        <span><i class="bi bi-lightning-charge"></i> Server Control</span>
-        <span class="float-end h5" id="status">
-          <span class="d-none d-sm-inline">Version: </span><span class="d-inline d-sm-none">v</span><span class="placeholder" id="serverVersion">0.00.0</span> - 
-          <span class="d-none d-sm-inline">Status: </span><span class="placeholder" id="serverStatus">__</span>
+        <span><i class="bi bi-lightning-charge"></i> Server</span>
+        <span class="float-end h5 m-0">
+          <span class="align-middle">
+            <span class="d-none d-sm-inline">Version: </span><span class="d-inline d-sm-none text-info">v</span><span class="placeholder" id="serverVersion">0.00.0</span> - 
+            <span class="d-none d-sm-inline">Status: </span><span class="placeholder" id="serverStatus">______</span>
+          </span>
         </span>
       </h3>
-      <div class="card-body mx-auto">
+      <div class="card-body mx-auto" id="serverControl">
         <button class="btn btn-success" id="btnOn"><i class="bi bi-lightbulb"></i><span class="d-none d-sm-inline"> Power On</span></button>
         <button class="btn btn-warning" id="btnOn"><i class="bi bi-arrow-repeat"></i><span class="d-none d-sm-inline"> Restart</span></button>
         <button class="btn btn-danger" id="btnOff"><i class="bi bi-lightbulb-off"></i><span class="d-none d-sm-inline"> Power Off</span></button>
-        <button class="btn btn-info" id="btnOff"><i class="bi bi-cloud-arrow-up"></i><span class="d-none d-sm-inline"> Update</span></button>
+        <button class="btn btn-info" id="btnOff"><i class="bi bi-arrow-up-circle"></i><span class="d-none d-sm-inline"> Update</span></button>
       </div>
     </div>
     <div class="card flex-grow-1 scroll-child">
