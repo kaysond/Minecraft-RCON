@@ -844,12 +844,12 @@ function getStatus() {
 }
 
 function sendServerCommand(command) {
-  $.post("control/", { 'command': command })
+  $.post("control/", {'command': command})
     .done(function(json) {
       switch (json.status) {
         case "success":
-          alertSuccess(`Successfully executed ${json.command} command`)
-          logSuccess(`Successfully executed ${json.command} command`)
+          alertSuccess(`Executed ${json.command} command`)
+          logSuccess(`Executed ${json.command} command`)
           break
         case "error":
           alertDanger(json.error)
